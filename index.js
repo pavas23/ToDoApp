@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const db = require("./config/mongoose");
+const Task = require("./models/task");
 const port = 5000;
 
 app.set("view engine","ejs");
@@ -8,39 +10,41 @@ app.set("views","./views");
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static("assets"));
 
-let taskArr = [
-    {
-        description : "hello",
-        date:"30th Aug 2021",
-        category:"personal",
-        _id:1234,
-    },
-    {
-        description : "hi",
-        date:"31th Aug 2021",
-        category:"school",
-        _id:2345,
-    },
-];
-
-app.get("/",(req,res)=>{
-    return res.render("home",{
-        title:"ToDoApp",
-        taskArr:taskArr,
-    });
+app.get("/",(req,res) =>{
+    Task.find({},function(err,tasks){
+        if(err){
+            console.log(err);
+            return;
+        }
+        return res.render('home',{
+            title:"ToDoApp",
+            taskArr: tasks,
+        });
+    })
 });
+
 app.post("/addtask",(req,res)=>{
-    taskArr.push(req.body);
-    res.redirect("/");
+    Task.create({
+        description:req.body.description,
+        date:(req.body.date)?req.body.date:"NO DEADLINE",
+        category:req.body.category,
+    },(err,taskCreated)=>{
+        if(err){
+            console.log(err);
+            return;
+        }
+    });
+    return res.redirect("/");
 });
 
 app.get("/deletetask",(req,res)=>{
     var id = req.query._id;
-    for(let i=0;i<taskArr.length;i++){
-        if(taskArr[i]._id == id){
-            taskArr.splice(i,1);
+    Task.findByIdAndDelete(id,(err)=>{
+        if(err){
+            console.log(err);
+            return;
         }
-    }
+    });
     res.redirect("/");
 })
 

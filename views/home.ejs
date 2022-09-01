@@ -27,33 +27,30 @@
                 </select><br>
             </div>
             <div id="second-row-right">
-                <span id="date-label">DATE</span>
+                <span id="date-label">DUE DATE</span>
                 <input type="date" name="date" id="date"><br>
             </div>
         </div>
         <div id="buttons">
-            <button type="submit" id="submit-btn"><i class="fa-solid fa-plus"></i>&nbsp;&nbsp;&nbsp;Add Task</button>
+            <button type="submit" id="submit-btn"><i class="fa-solid fa-plus"></i>&nbsp;&nbsp;&nbsp;ADD TASK</button>
     </form>
-    <!-- <form action="http://127.0.0.1:5000/deletetask" method="GET" id="delete-btn-form">
-        <button type="submit" id="delete-btn"><i class="fa-solid fa-trash-can"></i>&nbsp;&nbsp;&nbsp;Delete Task</button> -->
-    </form>
-        </div>
+    </div>
     <ul>
         <% for(let i=0;i<(taskArr.length);i++){ %>
             <li>
-                    <input type="checkbox" class="check" name="done">
-                <span id="desc" class = "desc-class">
+                <input type="checkbox" class="check" name="done">
+                <span id="desc" class="desc-class">
                     <%= taskArr[i].description %>
                 </span>
                 <span id="category-li" class="category-li-class">
                     <%= taskArr[i].category %>
                 </span>
                 <span id="delete-icon">
-                    <a href = "/deletetask/?_id=<%=taskArr[i]._id%>">
+                    <a href="/deletetask/?_id=<%=taskArr[i]._id%>">
                         <i class="fa-solid fa-trash-can fa-2x"></i>
                     </a>
                 </span>
-                <span id="date-li" class = "date-class">
+                <span id="date-li" class="date-class">
                     <i class="fa-solid fa-calendar-days"></i>
                     <%= taskArr[i].date %>
                 </span>
@@ -64,4 +61,3 @@
 </body>
 
 </html>
-
