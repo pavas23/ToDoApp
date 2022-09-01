@@ -13,10 +13,11 @@ add tasks as well as delete tasks from your todo list.
 - JavaScript
 - CSS
 
-### Installation
+## Installation
 
 Install my-project with npm
 
 ```bash
     npm install
 ```
+This will install all the dependencies
