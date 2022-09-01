@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <title>ToDoListApp</title>
+    <link rel="stylesheet" type="text/css" href="/home.css">
+    <script src="https://kit.fontawesome.com/b3348ae33f.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>ToDo App</h1>
+    <form action="http://127.0.0.1:5000/addtask" method="POST">
+        <div id="first-row">
+            <span id="desc-label">DESCRIPTION</span>
+            <input type="text" placeholder="What do you need to do?" name="description" minlength="3" id="text"
+                required>
+        </div>
+        <div id="second-row">
+            <div id="second-row-left">
+                <span id="cat-label">CATEGORY</span>
+                <select name="category" id="category">
+                    <option>Personal</option>
+                    <option>Work</option>
+                    <option>School</option>
+                    <option>College</option>
+                    <option>Cleaning</option>
+                    <option>Other</option>
+                </select><br>
+            </div>
+            <div id="second-row-right">
+                <span id="date-label">DATE</span>
+                <input type="date" name="date" id="date"><br>
+            </div>
+        </div>
+        <div id="buttons">
+            <button type="submit" id="submit-btn"><i class="fa-solid fa-plus"></i>&nbsp;&nbsp;&nbsp;Add Task</button>
+    </form>
+    <!-- <form action="http://127.0.0.1:5000/deletetask" method="GET" id="delete-btn-form">
+        <button type="submit" id="delete-btn"><i class="fa-solid fa-trash-can"></i>&nbsp;&nbsp;&nbsp;Delete Task</button> -->
+    </form>
+        </div>
+    <ul>
+        <% for(let i=0;i<(taskArr.length);i++){ %>
+            <li>
+                    <input type="checkbox" class="check" name="done">
+                <span id="desc" class = "desc-class">
+                    <%= taskArr[i].description %>
+                </span>
+                <span id="category-li" class="category-li-class">
+                    <%= taskArr[i].category %>
+                </span>
+                <span id="delete-icon">
+                    <a href = "/deletetask/?_id=<%=taskArr[i]._id%>">
+                        <i class="fa-solid fa-trash-can fa-2x"></i>
+                    </a>
+                </span>
+                <span id="date-li" class = "date-class">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <%= taskArr[i].date %>
+                </span>
+            </li>
+            <% } %>
+    </ul>
+    <script type="text/javascript" src="/home.js"></script>
+</body>
+
+</html>
+
