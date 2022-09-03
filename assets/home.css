@@ -3,12 +3,25 @@
     margin:0px;
     padding: 0px;
 }
+#particles-js{
+    z-index: -1;
+    position: absolute;
+    top:0vh;
+    height: auto;
+    min-height: 100vh;
+    width: 100vw !important;
+}
+body{
+    overflow-x: hidden;
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    font-family: 'Noto Sans', sans-serif;;
+}
 h1{
     font-family: 'Noto Sans', sans-serif;
     margin-top: 2vh;
     text-align: center;
     font-size: 3rem;
-    color: gray;
+    color: white;
 }
 #first-row{
     margin-top: 5vh;
@@ -20,10 +33,10 @@ h1{
     align-items: center;
 }
 #desc-label{
-    border-top:1px solid gray;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
-    color: gray;
+    border-top:1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    color: white;
     height: 30%;
     width: 50%;
     box-sizing: border-box;
@@ -33,12 +46,20 @@ h1{
 #text{
     border:none;
     outline: none;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
     width: 50%;
     height: 70%;
     padding-left: 1vw;
     color: black;
+    background-color: inherit;
+}
+#text:focus{
+    background-color: inherit;
+    color: white;
+}
+#text::placeholder{
+    color: white;
 }
 #second-row{
     display: flex;
@@ -54,14 +75,14 @@ h1{
     width: 25%;
 }
 #cat-label{
-    color: gray;
+    color: white;
     padding-top:1vh;
     width: 100%;
     height: 30%;
     box-sizing: border-box;
     padding-left: 1vw;
-    border-left: 1px solid gray;
-    border-top: 1px solid gray;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
 }
 #category{
     border:none;
@@ -69,8 +90,10 @@ h1{
     width: 100%;
     height: 70%;
     padding-left: 1vw;
-    border-left: 1px solid gray;
-    border-bottom: 1px solid gray;
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    background-color: inherit;
+    color: white;
 }
 #second-row-right{
     display: flex;
@@ -79,13 +102,13 @@ h1{
     width: 25%;
 }
 #date-label{
-    color: gray;
+    color: white;
     padding-top:1vh;
     border:none;
     outline: none;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
-    border-top: 1px solid gray;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-top: 1px solid white;
     width: 100%;
     height: 30%;
     box-sizing: border-box;
@@ -94,12 +117,14 @@ h1{
 #date{
     border:none;
     outline: none;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
-    border-bottom: 1px solid gray;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
     width: 100%;
     height: 70%;
     padding-left: 1vw;
+    background-color: inherit;
+    color: white;
 }
 #buttons{
     margin-top: 4vh;
@@ -110,7 +135,7 @@ h1{
 }
 #submit-btn{
     font-family: 'Noto Sans', sans-serif;
-    background-color: gray;
+    background-color: #A8EB12;
     color: white;
     height: 100%;
     width: 20%;
@@ -127,15 +152,19 @@ ul{
     align-items: center;
 }
 li{
-    color: gray;
+    color: white;
     font-family: 'Noto Sans', sans-serif;
     display: flex;
     width: 70%;
     height: 12vh;
     justify-content: flex-start;
     align-items: center;
-    border-top: 1px solid gray;
+    border-top: 1px solid white;
     flex-wrap: wrap;
+}
+li:hover{
+    transform: scale(1.02);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 }
 .check{
     width: 15%;
@@ -160,7 +189,7 @@ li{
 }
 #delete-icon a{
     padding-left: 30%;
-    color: black;
+    color: white;
 }
 #date-li{
     margin-top: -2.5vh;
